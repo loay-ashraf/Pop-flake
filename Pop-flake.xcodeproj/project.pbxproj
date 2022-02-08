@@ -56,15 +56,135 @@
 		C637E7BD27B28BAE00384CC3 /* Pop-flake */ = {
 			isa = PBXGroup;
 			children = (
-				C637E7BE27B28BAE00384CC3 /* AppDelegate.swift */,
-				C637E7C027B28BAE00384CC3 /* SceneDelegate.swift */,
+				C637E7D327B28C9000384CC3 /* Commons */,
+				C637E7D227B28C8700384CC3 /* Modules */,
+				C637E7D427B28CA700384CC3 /* Networking */,
+				C637E7E027B28E0700384CC3 /* Resources */,
 				C637E7C227B28BAE00384CC3 /* ViewController.swift */,
-				C637E7C427B28BAE00384CC3 /* Main.storyboard */,
-				C637E7C727B28BAF00384CC3 /* Assets.xcassets */,
-				C637E7C927B28BAF00384CC3 /* LaunchScreen.storyboard */,
-				C637E7CC27B28BAF00384CC3 /* Info.plist */,
 			);
 			path = "Pop-flake";
+			sourceTree = "<group>";
+		};
+		C637E7D227B28C8700384CC3 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				C637E7D527B28CB000384CC3 /* Main */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		C637E7D327B28C9000384CC3 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				C637E7D727B28CE100384CC3 /* Model */,
+				C637E7D827B28CE700384CC3 /* View */,
+				C637E7DA27B28CF600384CC3 /* View Controller */,
+				C637E7D927B28CEC00384CC3 /* View Model */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		C637E7D427B28CA700384CC3 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		C637E7D527B28CB000384CC3 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C637E7D627B28CB900384CC3 /* App */,
+				C637E7DB27B28D2000384CC3 /* Tab Bar */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		C637E7D627B28CB900384CC3 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C637E7BE27B28BAE00384CC3 /* AppDelegate.swift */,
+				C637E7C027B28BAE00384CC3 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		C637E7D727B28CE100384CC3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C637E7D827B28CE700384CC3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C637E7DF27B28D9600384CC3 /* Storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C637E7D927B28CEC00384CC3 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		C637E7DA27B28CF600384CC3 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		C637E7DB27B28D2000384CC3 /* Tab Bar */ = {
+			isa = PBXGroup;
+			children = (
+				C637E7DC27B28D2F00384CC3 /* Home */,
+				C637E7DD27B28D3500384CC3 /* Search */,
+				C637E7DE27B28D3C00384CC3 /* Settings */,
+			);
+			path = "Tab Bar";
+			sourceTree = "<group>";
+		};
+		C637E7DC27B28D2F00384CC3 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		C637E7DD27B28D3500384CC3 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		C637E7DE27B28D3C00384CC3 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		C637E7DF27B28D9600384CC3 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				C637E7C427B28BAE00384CC3 /* Main.storyboard */,
+				C637E7C927B28BAF00384CC3 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		C637E7E027B28E0700384CC3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C637E7C727B28BAF00384CC3 /* Assets.xcassets */,
+				C637E7CC27B28BAF00384CC3 /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,7 +337,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -272,7 +392,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -297,6 +417,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -306,7 +427,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -325,6 +446,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -334,7 +456,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
