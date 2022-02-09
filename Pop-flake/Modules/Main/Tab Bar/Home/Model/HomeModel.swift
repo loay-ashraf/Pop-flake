@@ -14,7 +14,11 @@ struct MovieList<T: Codable>: Codable {
 }
 
 // MARK: - Movie
-struct FullMovie: Codable {
+struct FullMovie: Model {
+    // Placeholder types till cell view model types are implemented
+    typealias CollectionCellViewModelType = Int
+    typealias TableCellViewModelType = String
+    
     let id, title, fullTitle, year: String
     let releaseState: String
     let image: URL
@@ -35,17 +39,21 @@ struct FullMovie: Codable {
 }
 
 // MARK: - RList
-struct RList: Codable {
+struct RList: Codable, Equatable {
     let id, name: String
 }
 
 // MARK: - GenreList
-struct GenreList: Codable {
+struct GenreList: Codable, Equatable {
     let key, value: String
 }
 
-// MARK: - TopRatedMovie
-struct TopRatedMovie: Codable {
+// MARK: - CompactMovie
+struct CompactMovie: Model {
+    // Placeholder types till cell view model types are implemented
+    typealias CollectionCellViewModelType = Int
+    typealias TableCellViewModelType = String
+    
     let id, rank, title, fullTitle: String
     let year: String
     let image: URL
@@ -59,14 +67,18 @@ struct TopRatedMovie: Codable {
 }
 
 // MARK: - Item
-struct BoxOfficeMovie: Codable {
+struct BoxOfficeMovie: Model {
+    // Placeholder types till cell view model types are implemented
+    typealias CollectionCellViewModelType = Int
+    typealias TableCellViewModelType = String
+    
     let id, rank, title: String
     let image: URL
     let weekend, gross, weeks: String
 }
 
 // MARK: - MovieTrailer
-struct MovieTrailer: Codable {
+struct MovieTrailer: Codable, Equatable {
     let imDBID, title, fullTitle, type: String
     let year, videoID, videoTitle, videoDescription: String
     let thumbnailURL: URL

@@ -26,6 +26,9 @@ struct Constants {
         
         static let apiKey = "k_b0u5794q"
         
+        static let maxPageCount = 100
+        static let minimumPageCapacity = 10
+        
     }
     
 }
