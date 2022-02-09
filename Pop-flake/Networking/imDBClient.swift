@@ -47,7 +47,7 @@ class imDBClient {
     }
     
     class func fetchMovieTrailer(id: String, completionHandler: @escaping (Result<MovieTrailer,NetworkError>) -> Void) {
-        networkManager.request(imDBRouter.trailer(id: id), completionHandler: completionHandler)
+        networkManager.request(imDBRouter.movieTrailer(id: id), completionHandler: completionHandler)
     }
     
     class func searchMovies(query: String, completionHandler: @escaping (Result<[SearchResult],NetworkError>) -> Void) {
