@@ -14,16 +14,16 @@ final class MovieSearchViewModel: WebServiceSearchTableViewModel {
     // MARK: - Properties
 
     typealias WebServiceLogicControllerType = MovieSearchLogicController
-    typealias TableCellViewModelType = SearchCellViewModel
+    typealias TableCellViewModelType = SearchResultCellViewModel
     
     var logicController = MovieSearchLogicController()
-    var cellViewModels = List<SearchCellViewModel>()
+    var cellViewModels = List<SearchResultCellViewModel>()
     
     // MARK: - Synchronize Properties Method
 
     func synchronizeProperties() {
         let modelItems = logicController.model.items
-        cellViewModels.items = modelItems.map { return SearchCellViewModel(from: $0) }
+        cellViewModels.items = modelItems.map { return SearchResultCellViewModel(from: $0) }
     }
     
 }
@@ -33,23 +33,23 @@ final class SeriesSearchViewModel: WebServiceSearchTableViewModel {
     // MARK: - Properties
 
     typealias WebServiceLogicControllerType = MovieSearchLogicController
-    typealias TableCellViewModelType = SearchCellViewModel
+    typealias TableCellViewModelType = SearchResultCellViewModel
     
     var logicController = MovieSearchLogicController()
-    var cellViewModels = List<SearchCellViewModel>()
+    var cellViewModels = List<SearchResultCellViewModel>()
     
     // MARK: - Synchronize Properties Method
 
     func synchronizeProperties() {
         let modelItems = logicController.model.items
-        cellViewModels.items = modelItems.map { return SearchCellViewModel(from: $0) }
+        cellViewModels.items = modelItems.map { return SearchResultCellViewModel(from: $0) }
     }
     
 }
 
 // MARK: - Cell Models
 
-final class SearchCellViewModel: TableCellViewModel {
+final class SearchResultCellViewModel: TableCellViewModel {
     
     // MARK: - Properties
     

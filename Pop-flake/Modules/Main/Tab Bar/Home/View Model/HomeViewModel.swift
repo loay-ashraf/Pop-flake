@@ -34,7 +34,7 @@ final class MostPopularViewModel: WebServicePlainCollectionViewModel {
     
 }
 
-final class CominSoonViewModel: WebServicePlainCollectionViewModel {
+final class ComingSoonViewModel: WebServicePlainCollectionViewModel {
 
     // MARK: - Properties
     
@@ -96,16 +96,16 @@ final class BoxOfficeViewModel: WebServicePlainTableViewModel {
     // MARK: - Properties
     
     typealias WebServiceLogicControllerType = BoxOfficeLogicController
-    typealias TableCellViewModelType = BoxOfficeMovieCellViewModel
+    typealias TableCellViewModelType = BoxOfficeCellViewModel
     
     var logicController = BoxOfficeLogicController()
-    var cellViewModels = List<BoxOfficeMovieCellViewModel>()
+    var cellViewModels = List<BoxOfficeCellViewModel>()
     
     // MARK: - Synchronize Properties Method
 
     func synchronizeProperties() {
         let modelItems = logicController.model.items
-        cellViewModels.items = modelItems.map { return BoxOfficeMovieCellViewModel(from: $0) }
+        cellViewModels.items = modelItems.map { return BoxOfficeCellViewModel(from: $0) }
     }
 
 }
@@ -191,6 +191,7 @@ final class CompactMovieCellViewModel: CollectionCellViewModel {
     var model: CompactMovie
     var title: String
     var year: String
+    var rating: String
     var image: URL
     
     // MARK: - Initialization
@@ -199,6 +200,7 @@ final class CompactMovieCellViewModel: CollectionCellViewModel {
         model = CompactMovie()
         title = ""
         year = ""
+        rating = ""
         image = URL(string: "www.imdb.com")!
     }
     
@@ -206,12 +208,13 @@ final class CompactMovieCellViewModel: CollectionCellViewModel {
         self.model = model
         title = model.title
         year = model.year
+        rating = model.imDBRating
         image = model.image
     }
     
 }
 
-final class BoxOfficeMovieCellViewModel: TableCellViewModel {
+final class BoxOfficeCellViewModel: TableCellViewModel {
     
     // MARK: - Properties
     
