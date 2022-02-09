@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C61E7DB827B38C94006E5F88 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61E7DB727B38C94006E5F88 /* ImageLoader.swift */; };
 		C637E7BF27B28BAE00384CC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C637E7BE27B28BAE00384CC3 /* AppDelegate.swift */; };
 		C637E7C127B28BAE00384CC3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C637E7C027B28BAE00384CC3 /* SceneDelegate.swift */; };
 		C637E7C327B28BAE00384CC3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C637E7C227B28BAE00384CC3 /* ViewController.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C61E7DB727B38C94006E5F88 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		C637E7BB27B28BAE00384CC3 /* Pop-flake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pop-flake.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C637E7BE27B28BAE00384CC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C637E7C027B28BAE00384CC3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				C637E7DF27B28D9600384CC3 /* Storyboard */,
+				C61E7DB727B38C94006E5F88 /* ImageLoader.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -272,7 +275,7 @@
 				};
 			};
 			buildConfigurationList = C637E7B627B28BAE00384CC3 /* Build configuration list for PBXProject "Pop-flake" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 11.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -309,6 +312,7 @@
 			files = (
 				C637E7F827B2EFC200384CC3 /* NetworkProtocols.swift in Sources */,
 				C637E7E827B2B81700384CC3 /* NetworkManager.swift in Sources */,
+				C61E7DB827B38C94006E5F88 /* ImageLoader.swift in Sources */,
 				C637E7F227B2C0C500384CC3 /* imDBClient.swift in Sources */,
 				C637E7E327B2A2F100384CC3 /* HomeModel.swift in Sources */,
 				C637E7F027B2C02200384CC3 /* imDBRouter.swift in Sources */,
@@ -471,7 +475,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Z3SPAA69G7;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Pop-flake/Info.plist";
+				INFOPLIST_FILE = "Pop-flake/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -501,7 +505,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Z3SPAA69G7;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Pop-flake/Info.plist";
+				INFOPLIST_FILE = "Pop-flake/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
