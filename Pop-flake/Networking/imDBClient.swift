@@ -7,7 +7,7 @@
 
 import Foundation
 
-class imDBClient: WebServiceProvider {
+final class imDBClient: WebServiceProvider {
     
     func fetchMostPopular(completionHandler: @escaping (Result<[CompactMovie],NetworkError>) -> Void) {
         func mappingHandler(result: Result<MovieList<CompactMovie>,NetworkError>) {

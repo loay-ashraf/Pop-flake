@@ -19,8 +19,13 @@ class ViewController: UIViewController {
 //            case .failure(let networkError): print(networkError)
 //            }
 //        }
+        
+//        let logicController = TopRatedLogicController()
+//        logicController.load { networkError in
+//            print(networkError)
+//            print(logicController.model)
+//        }
     }
-
 
 }
 

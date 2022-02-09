@@ -11,11 +11,21 @@ protocol WebServiceProvider {
     
     var networkManager: NetworkManager { get }
     
+    init()
+    
 }
 
 extension WebServiceProvider {
     
+    // MARK: - Properties
+    
     var networkManager: NetworkManager { return NetworkManager.standard }
+    
+    // MARK: - Initializer
+    
+    init() {
+        self.init()
+    }
     
 }
 

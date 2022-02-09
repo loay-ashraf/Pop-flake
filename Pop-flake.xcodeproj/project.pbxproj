@@ -25,6 +25,11 @@
 		C637E7F427B2E87300384CC3 /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C637E7F327B2E87300384CC3 /* FoundationExtensions.swift */; };
 		C637E7F627B2EC7800384CC3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C637E7F527B2EC7800384CC3 /* Constants.swift */; };
 		C637E7F827B2EFC200384CC3 /* NetworkProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C637E7F727B2EFC200384CC3 /* NetworkProtocols.swift */; };
+		C659C95527B3AA410073341D /* ModelProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C659C95427B3AA410073341D /* ModelProtocols.swift */; };
+		C659C95727B3B6120073341D /* ModelTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C659C95627B3B6120073341D /* ModelTypes.swift */; };
+		C659C95927B3B70B0073341D /* HomeLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C659C95827B3B70B0073341D /* HomeLogicController.swift */; };
+		C659C95B27B3BEA90073341D /* SearchLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C659C95A27B3BEA90073341D /* SearchLogicController.swift */; };
+		C659C95D27B3DDF50073341D /* ModelLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C659C95C27B3DDF50073341D /* ModelLogicController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +53,11 @@
 		C637E7F327B2E87300384CC3 /* FoundationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationExtensions.swift; sourceTree = "<group>"; };
 		C637E7F527B2EC7800384CC3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C637E7F727B2EFC200384CC3 /* NetworkProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtocols.swift; sourceTree = "<group>"; };
+		C659C95427B3AA410073341D /* ModelProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelProtocols.swift; sourceTree = "<group>"; };
+		C659C95627B3B6120073341D /* ModelTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTypes.swift; sourceTree = "<group>"; };
+		C659C95827B3B70B0073341D /* HomeLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLogicController.swift; sourceTree = "<group>"; };
+		C659C95A27B3BEA90073341D /* SearchLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLogicController.swift; sourceTree = "<group>"; };
+		C659C95C27B3DDF50073341D /* ModelLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelLogicController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +155,9 @@
 			children = (
 				C637E7F527B2EC7800384CC3 /* Constants.swift */,
 				C637E7F327B2E87300384CC3 /* FoundationExtensions.swift */,
+				C659C95427B3AA410073341D /* ModelProtocols.swift */,
+				C659C95627B3B6120073341D /* ModelTypes.swift */,
+				C659C95C27B3DDF50073341D /* ModelLogicController.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -227,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				C637E7E227B2A2F100384CC3 /* HomeModel.swift */,
+				C659C95827B3B70B0073341D /* HomeLogicController.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -235,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				C637E7E527B2AB7700384CC3 /* SearchModel.swift */,
+				C659C95A27B3BEA90073341D /* SearchLogicController.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -310,21 +325,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C659C95D27B3DDF50073341D /* ModelLogicController.swift in Sources */,
 				C637E7F827B2EFC200384CC3 /* NetworkProtocols.swift in Sources */,
 				C637E7E827B2B81700384CC3 /* NetworkManager.swift in Sources */,
 				C61E7DB827B38C94006E5F88 /* ImageLoader.swift in Sources */,
 				C637E7F227B2C0C500384CC3 /* imDBClient.swift in Sources */,
 				C637E7E327B2A2F100384CC3 /* HomeModel.swift in Sources */,
+				C659C95527B3AA410073341D /* ModelProtocols.swift in Sources */,
 				C637E7F027B2C02200384CC3 /* imDBRouter.swift in Sources */,
 				C637E7C327B28BAE00384CC3 /* ViewController.swift in Sources */,
 				C637E7BF27B28BAE00384CC3 /* AppDelegate.swift in Sources */,
 				C637E7EC27B2B8D700384CC3 /* NetworkExtensions.swift in Sources */,
 				C637E7F627B2EC7800384CC3 /* Constants.swift in Sources */,
 				C637E7EE27B2BF4800384CC3 /* NetworkReachability.swift in Sources */,
+				C659C95727B3B6120073341D /* ModelTypes.swift in Sources */,
 				C637E7F427B2E87300384CC3 /* FoundationExtensions.swift in Sources */,
+				C659C95927B3B70B0073341D /* HomeLogicController.swift in Sources */,
 				C637E7E627B2AB7700384CC3 /* SearchModel.swift in Sources */,
 				C637E7EA27B2B85600384CC3 /* NetworkTypes.swift in Sources */,
 				C637E7C127B28BAE00384CC3 /* SceneDelegate.swift in Sources */,
+				C659C95B27B3BEA90073341D /* SearchLogicController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
