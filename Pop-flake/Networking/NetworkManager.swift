@@ -14,8 +14,8 @@ class NetworkManager {
     static let standard = NetworkManager()
     var isInternetConnected: Bool { return reachabilityHelper.isInternetConnected }
     
-    private let urlSession: URLSession!
-    private let reachabilityHelper: ReachabilityHelper!
+    private let urlSession: URLSession
+    private let reachabilityHelper: ReachabilityHelper
     
     // MARK: - Initialization
     
@@ -66,12 +66,12 @@ extension NetworkManager {
         return dataResult.flatMap { (data) -> Result<Response,NetworkError> in
             do {
                 let responseObject = try JSONDecoder().decode(Response.self, from: data)
+                if let apiError = APIError(form: responseObject) {
+                    return .failure(.api(apiError))
+                }
                 return .success(responseObject)
             } catch {
-                do {
-                    let errorObject = try JSONDecoder().decode(APIError.self, from: data)
-                    return .failure(.api(errorObject))
-                } catch { return .failure(.decoding(error)) }
+                return .failure(.decoding(error))
             }
         }
     }

@@ -137,11 +137,16 @@ extension HTTPError: LocalizedError {
     }
 }
 
-struct APIError: Decodable {
+struct APIError {
     let message: String
     
-    enum CodingKeys: String, CodingKey {
-        case message
+    init?<T: Decodable>(form decodableObject: T) {
+        let mirror = Mirror(reflecting: decodableObject)
+        if let errorMessage = mirror.childValue(forLabel: "errorMessage") as? String, !errorMessage.isEmpty {
+            message = errorMessage
+        } else {
+            return nil
+        }
     }
 }
 
