@@ -15,9 +15,6 @@ struct MovieList<T: Codable>: Codable {
 
 // MARK: - Movie
 struct FullMovie: Model {
-    // Placeholder types till cell view model types are implemented
-    typealias CollectionCellViewModelType = Int
-    typealias TableCellViewModelType = String
     
     let id, title, fullTitle, year: String
     let releaseState: String
@@ -50,10 +47,6 @@ struct GenreList: Codable, Equatable {
 
 // MARK: - CompactMovie
 struct CompactMovie: Model {
-    // Placeholder types till cell view model types are implemented
-    typealias CollectionCellViewModelType = Int
-    typealias TableCellViewModelType = String
-    
     let id, rank, title, fullTitle: String
     let year: String
     let image: URL
@@ -68,10 +61,6 @@ struct CompactMovie: Model {
 
 // MARK: - Item
 struct BoxOfficeMovie: Model {
-    // Placeholder types till cell view model types are implemented
-    typealias CollectionCellViewModelType = Int
-    typealias TableCellViewModelType = String
-    
     let id, rank, title: String
     let image: URL
     let weekend, gross, weeks: String

@@ -7,55 +7,117 @@
 
 import Foundation
 
-final class MostPopularLogicController: WebServicePlainLogicController<imDBClient,CompactMovie> {
+final class MostPopularLogicController: WebServicePlainLogicController {
     
-    // MARK: - Load Method
+    // MARK: - Properties
     
-    override func load(then handler: @escaping NetworkLoadingHandler) {
+    typealias WebServiceProviderType = imDBClient
+    typealias ModelType = CompactMovie
+    
+    var webServiceProvider = imDBClient()
+    var model = List<CompactMovie>()
+    var handler: NetworkLoadingHandler?
+    var maxItemCount: Int?
+    var maxPageCount: Int = NetworkingConstants.maxPageCount
+    
+    // MARK: - Load Methods
+    
+    func load(then handler: @escaping NetworkLoadingHandler) {
         self.handler = handler
         webServiceProvider.fetchMostPopular(completionHandler: processWebServiceResult(result:))
     }
     
+    func loadTrailer(forItem item: Int, then handler: @escaping (Result<MovieTrailer,NetworkError>) -> Void) {
+        if item < model.count, !model.items[item].id.isEmpty {
+            let id = model.items[item].id
+            webServiceProvider.fetchMovieTrailer(id: id, completionHandler: handler)
+        }
+    }
+    
 }
 
-final class CominSoonLogicController: WebServicePlainLogicController<imDBClient,FullMovie> {
+final class ComingSoonLogicController: WebServicePlainLogicController {
+    
+    // MARK: - Properties
+    
+    typealias WebServiceProviderType = imDBClient
+    typealias ModelType = FullMovie
+    
+    var webServiceProvider = imDBClient()
+    var model = List<FullMovie>()
+    var handler: NetworkLoadingHandler?
+    var maxItemCount: Int?
+    var maxPageCount: Int = NetworkingConstants.maxPageCount
     
     // MARK: - Load Method
     
-    override func load(then handler: @escaping NetworkLoadingHandler) {
+    func load(then handler: @escaping NetworkLoadingHandler) {
         self.handler = handler
         webServiceProvider.fetchComingSoon(completionHandler: processWebServiceResult(result:))
     }
     
 }
 
-final class InTheatersLogicController: WebServicePlainLogicController<imDBClient,FullMovie> {
+final class InTheatersLogicController: WebServicePlainLogicController {
+    
+    // MARK: - Properties
+    
+    typealias WebServiceProviderType = imDBClient
+    typealias ModelType = FullMovie
+    
+    var webServiceProvider = imDBClient()
+    var model = List<FullMovie>()
+    var handler: NetworkLoadingHandler?
+    var maxItemCount: Int?
+    var maxPageCount: Int = NetworkingConstants.maxPageCount
     
     // MARK: - Load Method
     
-    override func load(then handler: @escaping NetworkLoadingHandler) {
+    func load(then handler: @escaping NetworkLoadingHandler) {
         self.handler = handler
         webServiceProvider.fetchInTheaters(completionHandler: processWebServiceResult(result:))
     }
     
 }
 
-final class TopRatedLogicController: WebServicePlainLogicController<imDBClient,CompactMovie> {
+final class TopRatedLogicController: WebServicePlainLogicController {
+    
+    // MARK: - Properties
+    
+    typealias WebServiceProviderType = imDBClient
+    typealias ModelType = CompactMovie
+    
+    var webServiceProvider = imDBClient()
+    var model = List<CompactMovie>()
+    var handler: NetworkLoadingHandler?
+    var maxItemCount: Int?
+    var maxPageCount: Int = NetworkingConstants.maxPageCount
     
     // MARK: - Load Method
     
-    override func load(then handler: @escaping NetworkLoadingHandler) {
+    func load(then handler: @escaping NetworkLoadingHandler) {
         self.handler = handler
         webServiceProvider.fetchTopRated(completionHandler: processWebServiceResult(result:))
     }
     
 }
 
-final class BoxOfficeLogicController: WebServicePlainLogicController<imDBClient,BoxOfficeMovie> {
+final class BoxOfficeLogicController: WebServicePlainLogicController {
+    
+    // MARK: - Properties
+    
+    typealias WebServiceProviderType = imDBClient
+    typealias ModelType = BoxOfficeMovie
+    
+    var webServiceProvider = imDBClient()
+    var model = List<BoxOfficeMovie>()
+    var handler: NetworkLoadingHandler?
+    var maxItemCount: Int?
+    var maxPageCount: Int = NetworkingConstants.maxPageCount
     
     // MARK: - Load Method
     
-    override func load(then handler: @escaping NetworkLoadingHandler) {
+    func load(then handler: @escaping NetworkLoadingHandler) {
         self.handler = handler
         webServiceProvider.fetchBoxOffice(completionHandler: processWebServiceResult(result:))
     }
