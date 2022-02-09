@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Search
-struct Search: Codable {
+struct SearchResultList: Codable {
     let searchType, expression: String
     let results: [SearchResult]
     let errorMessage: String

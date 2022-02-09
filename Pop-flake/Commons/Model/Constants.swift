@@ -15,12 +15,12 @@ struct Constants {
         
         static let apiBaseUrl = "https://imdb-api.com/API"
         
-        static let trailer = "Trailer"
         static let mostPopular = "MostPopularMovies"
         static let comingSoon = "ComingSoon"
         static let inTheaters = "InTheaters"
         static let topRated = "Top250Movies"
         static let boxOffice = "BoxOffice"
+        static let trailer = "Trailer"
         static let searchMovies = "SearchMovie"
         static let searchSeries = "SearchSeries"
         

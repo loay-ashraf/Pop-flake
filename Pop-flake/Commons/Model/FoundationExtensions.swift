@@ -19,10 +19,15 @@ extension String {
     
 }
 
-extension Dictionary where Key: StringProtocol, Value: StringProtocol {
+extension Mirror {
     
-    var queryString: String {
-        return map { $0.key + ":" + $0.value }.joined(separator: "+")
+    func childValue(forLabel label: String) -> Any? {
+        for child in children {
+            if child.label == label {
+                return child.value
+            }
+        }
+        return nil
     }
     
 }

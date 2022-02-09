@@ -14,12 +14,12 @@ enum imDBRouter {
     
     // MARK: - imDB API Route cases
     
-    case trailer(id: String)
     case mostPopular
     case comingSoon
     case inTheaters
     case topRated
     case boxOffice
+    case movieTrailer(id: String)
     case searchMovies(query: String)
     case searchSeries(query: String)
     
@@ -36,14 +36,14 @@ extension imDBRouter {
     var path: String {
         
         switch self {
-        case .trailer(let id): return baseURL.appendPathComponent(NetworkingConstants.apiKey).appendPathComponent(id)
-        case .mostPopular: return baseURL.appendPathComponent(NetworkingConstants.mostPopular).appendPathComponent(NetworkingConstants.apiKey)
-        case .comingSoon: return baseURL.appendPathComponent(NetworkingConstants.comingSoon).appendPathComponent(NetworkingConstants.apiKey)
-        case .inTheaters: return baseURL.appendPathComponent(NetworkingConstants.inTheaters).appendPathComponent(NetworkingConstants.apiKey)
-        case .topRated: return baseURL.appendPathComponent(NetworkingConstants.topRated).appendPathComponent(NetworkingConstants.apiKey)
-        case .boxOffice: return baseURL.appendPathComponent(NetworkingConstants.boxOffice).appendPathComponent(NetworkingConstants.apiKey)
-        case .searchMovies(let query): return baseURL.appendPathComponent(NetworkingConstants.searchMovies).appendPathComponent(NetworkingConstants.apiKey).appendPathComponent(query)
-        case .searchSeries(let query): return baseURL.appendPathComponent(NetworkingConstants.searchSeries).appendPathComponent(NetworkingConstants.apiKey).appendPathComponent(query)
+        case .mostPopular: return NetworkingConstants.mostPopular.appendPathComponent(NetworkingConstants.apiKey)
+        case .comingSoon: return NetworkingConstants.comingSoon.appendPathComponent(NetworkingConstants.apiKey)
+        case .inTheaters: return NetworkingConstants.inTheaters.appendPathComponent(NetworkingConstants.apiKey)
+        case .topRated: return NetworkingConstants.topRated.appendPathComponent(NetworkingConstants.apiKey)
+        case .boxOffice: return NetworkingConstants.boxOffice.appendPathComponent(NetworkingConstants.apiKey)
+        case .movieTrailer(let id): return NetworkingConstants.trailer.appendPathComponent(NetworkingConstants.apiKey).appendPathComponent(id)
+        case .searchMovies(let query): return NetworkingConstants.searchMovies.appendPathComponent(NetworkingConstants.apiKey).appendPathComponent(query)
+        case .searchSeries(let query): return NetworkingConstants.searchSeries.appendPathComponent(NetworkingConstants.apiKey).appendPathComponent(query)
         }
         
     }

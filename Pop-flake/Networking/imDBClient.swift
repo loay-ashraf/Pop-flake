@@ -11,36 +11,57 @@ class imDBClient {
     
     static let networkManager = NetworkManager.standard
     
+    class func fetchMostPopular(completionHandler: @escaping (Result<[TopRatedMovie],NetworkError>) -> Void) {
+        func mappingHandler(result: Result<MovieList<TopRatedMovie>,NetworkError>) {
+            completionHandler(result.flatMap { (movieList) -> Result<[TopRatedMovie],NetworkError> in return .success(movieList.items) })
+        }
+        networkManager.request(imDBRouter.mostPopular, completionHandler: mappingHandler)
+    }
+    
+    class func fetchComingSoon(completionHandler: @escaping (Result<[FullMovie],NetworkError>) -> Void) {
+        func mappingHandler(result: Result<MovieList<FullMovie>,NetworkError>) {
+            completionHandler(result.flatMap { (movieList) -> Result<[FullMovie],NetworkError> in return .success(movieList.items) })
+        }
+        networkManager.request(imDBRouter.comingSoon, completionHandler: mappingHandler)
+    }
+    
+    class func fetchInTheaters(completionHandler: @escaping (Result<[FullMovie],NetworkError>) -> Void) {
+        func mappingHandler(result: Result<MovieList<FullMovie>,NetworkError>) {
+            completionHandler(result.flatMap { (movieList) -> Result<[FullMovie],NetworkError> in return .success(movieList.items) })
+        }
+        networkManager.request(imDBRouter.inTheaters, completionHandler: mappingHandler)
+    }
+    
+    class func fetchTopRated(completionHandler: @escaping (Result<[TopRatedMovie],NetworkError>) -> Void) {
+        func mappingHandler(result: Result<MovieList<TopRatedMovie>,NetworkError>) {
+            completionHandler(result.flatMap { (movieList) -> Result<[TopRatedMovie],NetworkError> in return .success(movieList.items) })
+        }
+        networkManager.request(imDBRouter.topRated, completionHandler: mappingHandler)
+    }
+    
+    class func fetchBoxOffice(completionHandler: @escaping (Result<[BoxOfficeMovie],NetworkError>) -> Void) {
+        func mappingHandler(result: Result<MovieList<BoxOfficeMovie>,NetworkError>) {
+            completionHandler(result.flatMap { (movieList) -> Result<[BoxOfficeMovie],NetworkError> in return .success(movieList.items) })
+        }
+        networkManager.request(imDBRouter.boxOffice, completionHandler: mappingHandler)
+    }
+    
     class func fetchMovieTrailer(id: String, completionHandler: @escaping (Result<MovieTrailer,NetworkError>) -> Void) {
         networkManager.request(imDBRouter.trailer(id: id), completionHandler: completionHandler)
     }
     
-    class func fetchMostPopular(completionHandler: @escaping (Result<MostPopular,NetworkError>) -> Void) {
-        networkManager.request(imDBRouter.mostPopular, completionHandler: completionHandler)
+    class func searchMovies(query: String, completionHandler: @escaping (Result<[SearchResult],NetworkError>) -> Void) {
+        func mappingHandler(result: Result<SearchResultList,NetworkError>) {
+            completionHandler(result.flatMap { (searchResultList) -> Result<[SearchResult],NetworkError> in return .success(searchResultList.results) })
+        }
+        networkManager.request(imDBRouter.searchMovies(query: query), completionHandler: mappingHandler)
     }
     
-    class func fetchComingSoon(completionHandler: @escaping (Result<ComingSoon,NetworkError>) -> Void) {
-        networkManager.request(imDBRouter.comingSoon, completionHandler: completionHandler)
-    }
-    
-    class func fetchInTheaters(completionHandler: @escaping (Result<InTheaters,NetworkError>) -> Void) {
-        networkManager.request(imDBRouter.inTheaters, completionHandler: completionHandler)
-    }
-    
-    class func fetchTopRated(completionHandler: @escaping (Result<TopRated,NetworkError>) -> Void) {
-        networkManager.request(imDBRouter.topRated, completionHandler: completionHandler)
-    }
-    
-    class func fetchBoxOffice(completionHandler: @escaping (Result<BoxOffice,NetworkError>) -> Void) {
-        networkManager.request(imDBRouter.boxOffice, completionHandler: completionHandler)
-    }
-    
-    class func searchMovies(query: String, completionHandler: @escaping (Result<Search,NetworkError>) -> Void) {
-        networkManager.request(imDBRouter.searchMovies(query: query), completionHandler: completionHandler)
-    }
-    
-    class func searchSeries(query: String, completionHandler: @escaping (Result<Search,NetworkError>) -> Void) {
-        networkManager.request(imDBRouter.searchSeries(query: query), completionHandler: completionHandler)
+    class func searchSeries(query: String, completionHandler: @escaping (Result<[SearchResult],NetworkError>) -> Void) {
+        func mappingHandler(result: Result<SearchResultList,NetworkError>) {
+            completionHandler(result.flatMap { (searchResultList) -> Result<[SearchResult],NetworkError> in return .success(searchResultList.results) })
+        }
+        networkManager.request(imDBRouter.searchSeries(query: query), completionHandler: mappingHandler)
     }
 
 }

@@ -7,29 +7,9 @@
 
 import Foundation
 
-// MARK: - MostPopular
-struct MostPopular: Codable {
-    let items: [TopRatedMovie]
-    let errorMessage: String
-}
-
-struct ComingSoon: Codable {
-    let items: [FullMovie]
-    let errorMessage: String
-}
-
-struct InTheaters: Codable {
-    let items: [FullMovie]
-    let errorMessage: String
-}
-
-struct TopRated: Codable {
-    let items: [TopRatedMovie]
-    let errorMessage: String
-}
-
-struct BoxOffice: Codable {
-    let items: [BoxOfficeMovie]
+// MARK: - MovieList
+struct MovieList<T: Codable>: Codable {
+    let items: [T]
     let errorMessage: String
 }
 
