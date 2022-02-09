@@ -25,6 +25,14 @@ class ViewController: UIViewController {
 //            print(networkError)
 //            print(logicController.model)
 //        }
+        
+//        let viewModel = MostPopularViewModel()
+//        viewModel.loadTrailer(forItem: 0) { trailerResult in
+//            switch trailerResult {
+//            case .success(let movieTrailer): print(movieTrailer.link)
+//            case .failure(let networkError): print(networkError)
+//            }
+//        }
     }
 
 }

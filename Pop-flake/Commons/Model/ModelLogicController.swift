@@ -7,21 +7,51 @@
 
 import Foundation
 
-class WebServiceLogicController<T: WebServiceProvider,U: Model> {
+// MARK: - Protocol Definition
+
+protocol WebServiceLogicController: AnyObject {
     
-    // MARK: - Properties
+    associatedtype WebServiceProviderType: WebServiceProvider
+    associatedtype ModelType: Model
     
-    var webServiceProvider = T()
-    var model = List<U>()
-    var handler: NetworkLoadingHandler?
-    var maxItemCount: Int?
-    var maxPageCount: Int
+    var webServiceProvider: WebServiceProviderType { get }
+    var model: List<ModelType> { get set }
+    var handler: NetworkLoadingHandler? { get set }
+    var maxItemCount: Int? { get }
+    var maxPageCount: Int { get }
+    
+    init(maxItemCount: Int?, maxPageCount: Int)
+    
+    func reset()
+    func processWebServiceResult(result: Result<Array<ModelType>, NetworkError>)
+    func updateModelProperties(newItemsCount: Int)
+    
+}
+
+protocol WebServicePlainLogicController: WebServiceLogicController {
+    
+    func load(then handler: @escaping NetworkLoadingHandler)
+    func refresh(then handler: @escaping NetworkLoadingHandler)
+    func paginate(then handler: @escaping NetworkLoadingHandler)
+    
+}
+
+protocol WebServiceSearchLogicController: WebServiceLogicController {
+    
+    func load(withQuery query: String, then handler: @escaping NetworkLoadingHandler)
+    func refresh(withQuery query: String, then handler: @escaping NetworkLoadingHandler)
+    func paginate(withQuery query: String, then handler: @escaping NetworkLoadingHandler)
+    
+}
+
+// MARK: - Protocol Extensions
+
+extension WebServiceLogicController {
     
     // MARK: - Initialization
     
     init(maxItemCount: Int? = nil, maxPageCount: Int = NetworkingConstants.maxPageCount) {
-        self.maxItemCount = maxItemCount
-        self.maxPageCount = maxPageCount
+        self.init(maxItemCount: maxItemCount, maxPageCount: maxPageCount)
     }
     
     // MARK: - Reset Method
@@ -32,7 +62,7 @@ class WebServiceLogicController<T: WebServiceProvider,U: Model> {
     
     // MARK: - Web Service Result Processing Methods
     
-    func processWebServiceResult(result: Result<Array<U>, NetworkError>) {
+    func processWebServiceResult(result: Result<Array<ModelType>, NetworkError>) {
         switch result {
         case .success(let response): model.append(contentsOf: response)
                                      updateModelProperties(newItemsCount: response.count)
@@ -53,14 +83,10 @@ class WebServiceLogicController<T: WebServiceProvider,U: Model> {
     
 }
 
-class WebServicePlainLogicController<T: WebServiceProvider,U: Model>: WebServiceLogicController<T,U> {
+extension WebServicePlainLogicController {
     
-    // MARK: - Load, Refresh and Paginate methods
-    
-    func load(then handler: @escaping NetworkLoadingHandler) {
-        fatalError("\(String(describing: Self.self)) doesn't implement load method")
-    }
-    
+    // MARK: - Refresh and Paginate methods
+
     func refresh(then handler: @escaping NetworkLoadingHandler) {
         reset()
         load(then: handler)
@@ -72,14 +98,10 @@ class WebServicePlainLogicController<T: WebServiceProvider,U: Model>: WebService
     
 }
 
-class WebServiceSearchLogicController<T: WebServiceProvider,U: Model>: WebServiceLogicController<T,U> {
+extension WebServiceSearchLogicController {
     
-    // MARK: - Load, Refresh and Paginate methods
-    
-    func load(withQuery query: String, then handler: @escaping NetworkLoadingHandler) {
-        fatalError("\(String(describing: Self.self)) doesn't implement load method")
-    }
-    
+    // MARK: - Refresh and Paginate methods
+
     func refresh(withQuery query: String, then handler: @escaping NetworkLoadingHandler) {
         reset()
         load(withQuery: query, then: handler)
