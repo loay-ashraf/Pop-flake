@@ -15,7 +15,11 @@ struct SearchResultList: Codable {
 }
 
 // MARK: - Result
-struct SearchResult: Codable {
+struct SearchResult: Model {
+    // Placeholder types till cell view model types are implemented
+    typealias CollectionCellViewModelType = Int
+    typealias TableCellViewModelType = String
+    
     let id, resultType: String
     let image: URL
     let title, resultDescription: String
