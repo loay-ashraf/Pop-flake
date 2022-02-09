@@ -7,6 +7,18 @@
 
 import Foundation
 
+protocol WebServiceProvider {
+    
+    var networkManager: NetworkManager { get }
+    
+}
+
+extension WebServiceProvider {
+    
+    var networkManager: NetworkManager { return NetworkManager.standard }
+    
+}
+
 protocol URLRequestConvertible {
     
     func asURLRequest() -> URLRequest
