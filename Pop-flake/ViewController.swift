@@ -11,7 +11,14 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+//        imDBClient.fetchBoxOffice { result in
+//            switch result {
+//            case .success(let boxOfficeMovies): ImageLoader.standard.loadImage(boxOfficeMovies[0].image) { imageResult in
+//                try? print(imageResult.get().pngData())
+//            }
+//            case .failure(let networkError): print(networkError)
+//            }
+//        }
     }
 
 
