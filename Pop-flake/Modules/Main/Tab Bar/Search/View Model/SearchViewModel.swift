@@ -14,16 +14,16 @@ final class MovieSearchViewModel: WebServiceSearchTableViewModel {
     // MARK: - Properties
 
     typealias WebServiceLogicControllerType = MovieSearchLogicController
-    typealias TableCellViewModelType = SearchCellViewModel
+    typealias TableCellViewModelType = SearchResultCellViewModel
     
     var logicController = MovieSearchLogicController()
-    var cellViewModels = List<SearchCellViewModel>()
+    var cellViewModels = List<SearchResultCellViewModel>()
     
     // MARK: - Synchronize Properties Method
 
     func synchronizeProperties() {
         let modelItems = logicController.model.items
-        cellViewModels.items = modelItems.map { return SearchCellViewModel(from: $0) }
+        cellViewModels.items = modelItems.map { return SearchResultCellViewModel(from: $0) }
     }
     
 }
@@ -33,29 +33,30 @@ final class SeriesSearchViewModel: WebServiceSearchTableViewModel {
     // MARK: - Properties
 
     typealias WebServiceLogicControllerType = MovieSearchLogicController
-    typealias TableCellViewModelType = SearchCellViewModel
+    typealias TableCellViewModelType = SearchResultCellViewModel
     
     var logicController = MovieSearchLogicController()
-    var cellViewModels = List<SearchCellViewModel>()
+    var cellViewModels = List<SearchResultCellViewModel>()
     
     // MARK: - Synchronize Properties Method
 
     func synchronizeProperties() {
         let modelItems = logicController.model.items
-        cellViewModels.items = modelItems.map { return SearchCellViewModel(from: $0) }
+        cellViewModels.items = modelItems.map { return SearchResultCellViewModel(from: $0) }
     }
     
 }
 
 // MARK: - Cell Models
 
-final class SearchCellViewModel: TableCellViewModel {
+final class SearchResultCellViewModel: TableCellViewModel {
     
     // MARK: - Properties
     
     typealias ModelType = SearchResult
     
     var model: SearchResult
+    var id: String
     var title: String
     var description: String
     var image: URL
@@ -64,6 +65,7 @@ final class SearchCellViewModel: TableCellViewModel {
     
     init() {
         model = SearchResult()
+        id = ""
         title = ""
         description = ""
         image = URL(string: "www.imdb.com")!
@@ -71,6 +73,7 @@ final class SearchCellViewModel: TableCellViewModel {
     
     init(from model: SearchResult) {
         self.model = model
+        id = model.id
         title = model.title
         description = model.resultDescription
         image = model.image

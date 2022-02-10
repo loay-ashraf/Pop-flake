@@ -6,10 +6,18 @@
 //
 
 import Foundation
+import UIKit
+import NotificationBannerSwift
 
 typealias NetworkingConstants = Constants.NetworkingConstants
+typealias ViewConstants = Constants.View
+typealias AlertConstants = ViewConstants.Alert
+typealias EmptyConstants = ViewConstants.Empty
+typealias ErrorConstants = ViewConstants.Error
 
 struct Constants {
+    
+    // MARK: - Networking Constants
     
     struct NetworkingConstants {
         
@@ -20,7 +28,7 @@ struct Constants {
         static let inTheaters = "InTheaters"
         static let topRated = "Top250Movies"
         static let boxOffice = "BoxOffice"
-        static let trailer = "Trailer"
+        static let trailer = "YouTubeTrailer"
         static let searchMovies = "SearchMovie"
         static let searchSeries = "SearchSeries"
         
@@ -28,6 +36,84 @@ struct Constants {
         
         static let maxPageCount = 100
         static let minimumPageCapacity = 10
+        
+        static func titleURL(forID id: String) -> URL {
+            return (URL(string: "www.imdb.com/title")?.appendingPathComponent(id))!
+        }
+        
+    }
+    
+    // MARK: - View Constants
+    
+    struct View {
+        
+        // MARK: - Alert Constants
+        
+        struct Alert {
+            
+            struct NoInternet {
+                
+                static let title = "No Internet"
+                
+                static func notificationBanner() -> StatusBarNotificationBanner {
+                    let banner = StatusBarNotificationBanner(title: title, style: .danger)
+                    banner.autoDismiss = false
+                    return banner
+                }
+                
+            }
+        
+        }
+        
+        // MARK: - Empty Constants
+        
+        struct Empty {
+            
+            // General empty image and title
+            struct General {
+                
+                static private let image = UIImage(systemName: "exclamationmark")
+                static private let title = "WoW, such empty"
+                static let viewModel = EmptyViewModel(image: image, title: title)
+                
+            }
+            
+            // Search results image and title
+            struct SearchResults {
+                
+                static private let image = UIImage(systemName: "magnifyingglass")
+                static private let title = "No Search results found, try searching for a different term."
+                static let viewModel = EmptyViewModel(image: image, title: title)
+                
+            }
+            
+        }
+        
+        // MARK: - Error Constants
+        
+        struct Error {
+            
+            // Internet error image, title and message
+            struct Internet {
+                
+                static private let image = UIImage(systemName: "wifi.exclamationmark")
+                static private let title = "No Internet"
+                static private let message = "You're not connected to Internet,\nplease try again later."
+                static let viewModel = ErrorViewModel(image: image, title: title, message: message)
+
+            }
+            
+            // Network error image, title and message
+            struct Network {
+                
+                static private let image = UIImage(systemName: "exclamationmark.icloud")
+                static private let title = "Network Error"
+                static private let message = "We're working on it,\nWe will be back soon."
+                static let viewModel = ErrorViewModel(image: image, title: title, message: message)
+                
+            }
+            
+        }
         
     }
     
