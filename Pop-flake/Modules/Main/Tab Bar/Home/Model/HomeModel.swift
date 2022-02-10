@@ -69,18 +69,15 @@ struct BoxOfficeMovie: Model {
 // MARK: - MovieTrailer
 struct MovieTrailer: Codable, Equatable {
     let imDBID, title, fullTitle, type: String
-    let year, videoID, videoTitle, videoDescription: String
-    let thumbnailURL: URL
-    let uploadDate: String?
-    let link, linkEmbed: URL
+    let year, videoID: String
+    let videoURL: URL
     let errorMessage: String
 
     enum CodingKeys: String, CodingKey {
-        case imDBID = "imDbId"
-        case title, fullTitle, type, year
-        case videoID = "videoId"
-        case videoTitle, videoDescription
-        case thumbnailURL = "thumbnailUrl"
-        case uploadDate, link, linkEmbed, errorMessage
+    case imDBID = "imDbId"
+    case title, fullTitle, type, year
+    case videoID = "videoId"
+    case videoURL = "videoUrl"
+    case errorMessage
     }
 }

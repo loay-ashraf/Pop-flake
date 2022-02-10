@@ -7,29 +7,29 @@
 
 import UIKit
 
-class MostPopularDelegate: CollectionViewDelegate {
+class ComingSoonDelegate: CollectionViewDelegate {
     
-//    init(_ viewController: UserViewController) {
-//        super.init()
-//        tapResponder = UserTableViewTapResponder(viewController)
-//    }
-    
-}
-
-class FullMovieDelegate: CollectionViewDelegate {
-    
-//    init(_ viewController: UserViewController) {
-//        super.init()
-//        tapResponder = UserTableViewTapResponder(viewController)
-//    }
+    init(_ viewController: ComingSoonViewController) {
+        super.init()
+        tapResponder = ComingSoonTapResponder(viewController)
+    }
     
 }
 
-class CompactMovieDelegate: CollectionViewDelegate {
+class InTheatersDelegate: CollectionViewDelegate {
     
-//    init(_ viewController: UserViewController) {
-//        super.init()
-//        tapResponder = UserTableViewTapResponder(viewController)
-//    }
+    init(_ viewController: InTheatersViewController) {
+        super.init()
+        tapResponder = InTheatersTapResponder(viewController)
+    }
+    
+}
+
+class TopRatedDelegate: CollectionViewDelegate {
+    
+    init(_ viewController: TopRatedViewController) {
+        super.init()
+        tapResponder = TopRatedTapResponder(viewController)
+    }
     
 }

@@ -56,6 +56,7 @@ final class SearchResultCellViewModel: TableCellViewModel {
     typealias ModelType = SearchResult
     
     var model: SearchResult
+    var id: String
     var title: String
     var description: String
     var image: URL
@@ -64,6 +65,7 @@ final class SearchResultCellViewModel: TableCellViewModel {
     
     init() {
         model = SearchResult()
+        id = ""
         title = ""
         description = ""
         image = URL(string: "www.imdb.com")!
@@ -71,6 +73,7 @@ final class SearchResultCellViewModel: TableCellViewModel {
     
     init(from model: SearchResult) {
         self.model = model
+        id = model.id
         title = model.title
         description = model.resultDescription
         image = model.image

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class CollectionViewDataSource<T: CollectionCellViewModel>: NSObject, UICollectionViewDataSource {
     
@@ -41,8 +42,17 @@ class CollectionViewDataSource<T: CollectionCellViewModel>: NSObject, UICollecti
 
             return cell
         }
-        return CollectionViewCell()
+        return UICollectionViewCell()
     }
 
 }
 
+class SKCollectionViewDataSource<T: CollectionCellViewModel>: CollectionViewDataSource<T>, SkeletonCollectionViewDataSource {
+    
+    // MARK: - Data Source
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return cellClass?.reuseIdentifier ?? "CollectionViewCell"
+    }
+
+}

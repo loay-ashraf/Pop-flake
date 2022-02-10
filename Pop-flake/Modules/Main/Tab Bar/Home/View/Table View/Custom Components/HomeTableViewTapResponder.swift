@@ -10,9 +10,9 @@ import UIKit
 class BoxOfficeTapResponder: TableViewTapResponder {
     
     override func respondToTap(atRow row: Int) {
-//        if let viewController = viewController as? UserViewController {
-//            viewController.showDetail(atRow: row)
-//        }
+        if let viewController = viewController as? BoxOfficeViewController {
+            viewController.showDetail(atRow: row)
+        }
     }
     
 }

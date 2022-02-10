@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class SFDynamicTableView: TableView, StatefulView {
     
@@ -14,6 +15,7 @@ class SFDynamicTableView: TableView, StatefulView {
     var state: ViewState = .presenting
 
     var isSuperView: Bool = false
+    var isScrollable: Bool = true
     
     var errorAction: (() -> Void)?
     var footerErrorAction: (() -> Void)?
@@ -30,6 +32,7 @@ class SFDynamicTableView: TableView, StatefulView {
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         initializeSubviews()
+        isSkeletonable = true
     }
     
     required init?(coder: NSCoder) {
@@ -89,11 +92,11 @@ class SFDynamicTableView: TableView, StatefulView {
     
     func showActivityIndicator(for loadingViewState: LoadingViewState) {
         switch loadingViewState {
-        case .initial: if isSuperView == false, !SVProgressHUD.isVisible() {
+        case .initial: if isSuperView == false {
                             activityIndicatorView.show(on: self)
                         } else if isSuperView {
-                            addSubview(curtainView)
-                            SVProgressHUD.show()
+                            //addSubview(curtainView)
+                            showAnimatedSkeleton()
                         }
                         isScrollEnabled = false
         case .refresh: return
@@ -103,13 +106,13 @@ class SFDynamicTableView: TableView, StatefulView {
     
     func hideActivityIndicator(for loadingViewState: LoadingViewState) {
         switch loadingViewState {
-        case .initial: if isSuperView == false, !SVProgressHUD.isVisible() {
+        case .initial: if isSuperView == false {
                             activityIndicatorView.hide()
                         } else if isSuperView {
-                            curtainView.removeFromSuperview()
-                            SVProgressHUD.dismiss(withDelay: 0.5)
+                            //curtainView.removeFromSuperview()
+                            hideSkeleton()
                         }
-                        isScrollEnabled = true
+                        isScrollable ? isScrollEnabled = true : nil
         case .refresh: refreshControl?.endRefreshing()
         case .paginate: footerActivityIndicatorView.hide()
         }

@@ -9,10 +9,10 @@ import UIKit
 
 class BoxOfficeDelegate: TableViewDelegate {
     
-//    init(_ viewController: UserViewController) {
-//        super.init()
-//        tapResponder = UserTableViewTapResponder(viewController)
-//    }
+    init(_ viewController: BoxOfficeViewController) {
+        super.init()
+        tapResponder = BoxOfficeTapResponder(viewController)
+    }
     
 }
 

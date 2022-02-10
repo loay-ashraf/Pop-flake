@@ -9,9 +9,14 @@ import UIKit
 
 class SearchResultDelegate: TableViewDelegate {
     
-//    init(_ viewController: UserViewController) {
-//        super.init()
-//        tapResponder = UserTableViewTapResponder(viewController)
-//    }
+    init(_ viewController: MovieSearchViewController) {
+        super.init()
+        tapResponder = SearchResultTapResponder(viewController)
+    }
+    
+    init(_ viewController: SeriesSearchViewController) {
+        super.init()
+        tapResponder = SearchResultTapResponder(viewController)
+    }
     
 }

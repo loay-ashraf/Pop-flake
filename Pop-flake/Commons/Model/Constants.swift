@@ -26,7 +26,7 @@ struct Constants {
         static let inTheaters = "InTheaters"
         static let topRated = "Top250Movies"
         static let boxOffice = "BoxOffice"
-        static let trailer = "Trailer"
+        static let trailer = "YouTubeTrailer"
         static let searchMovies = "SearchMovie"
         static let searchSeries = "SearchSeries"
         
@@ -34,6 +34,10 @@ struct Constants {
         
         static let maxPageCount = 100
         static let minimumPageCapacity = 10
+        
+        static func titleURL(forID id: String) -> URL {
+            return (URL(string: "www.imdb.com/title")?.appendingPathComponent(id))!
+        }
         
     }
     

@@ -10,39 +10,39 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MostPopularCell" customModule="Pop_flake" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MostPopularCell" id="gTV-IL-0wX" customClass="MostPopularCell" customModule="Pop_flake" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="192" height="268"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="192" height="268"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="rmf-iU-swI">
-                        <rect key="frame" x="15" y="15" width="162" height="238"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="rmf-iU-swI">
+                        <rect key="frame" x="0.0" y="0.0" width="192" height="268"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YXx-5I-eoF" customClass="SFImageView" customModule="Pop_flake" customModuleProvider="target">
-                                <rect key="frame" x="6" y="0.0" width="150" height="200"/>
+                                <rect key="frame" x="0.0" y="0.0" width="192" height="243"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="WPW-aT-iFU"/>
-                                    <constraint firstAttribute="height" constant="200" id="oT0-cH-Bls"/>
+                                    <constraint firstAttribute="width" priority="750" constant="200" id="WPW-aT-iFU"/>
+                                    <constraint firstAttribute="height" priority="750" constant="300" id="oT0-cH-Bls"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="YWU-R5-eHs">
-                                <rect key="frame" x="0.0" y="218" width="162" height="20"/>
+                                <rect key="frame" x="0.0" y="248" width="192" height="20"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u3F-jz-awt">
                                         <rect key="frame" x="0.0" y="0.0" width="29" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="hoZ-4I-AuY"/>
+                                            <constraint firstAttribute="height" priority="750" constant="20" id="hoZ-4I-AuY"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHN-aM-JT3">
-                                        <rect key="frame" x="118.5" y="0.0" width="43.5" height="20"/>
+                                        <rect key="frame" x="148.5" y="0.0" width="43.5" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="0kC-KI-pRt"/>
+                                            <constraint firstAttribute="height" priority="750" constant="20" id="0kC-KI-pRt"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <nil key="textColor"/>
@@ -56,17 +56,30 @@
                             <constraint firstAttribute="trailing" secondItem="YWU-R5-eHs" secondAttribute="trailing" id="JHR-Ge-5Iy"/>
                         </constraints>
                     </stackView>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Spz-Gj-Wan" customClass="YTPlayerView">
+                        <rect key="frame" x="0.0" y="0.0" width="192" height="268"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" priority="750" constant="325" id="JWp-81-gqa"/>
+                            <constraint firstAttribute="width" priority="750" constant="200" id="WEu-AQ-QMA"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="rmf-iU-swI" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="DNJ-nR-4wQ"/>
-                <constraint firstAttribute="trailing" secondItem="rmf-iU-swI" secondAttribute="trailing" constant="15" id="Z4u-Rf-9nq"/>
-                <constraint firstItem="rmf-iU-swI" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="mx7-DV-Iyx"/>
-                <constraint firstAttribute="bottom" secondItem="rmf-iU-swI" secondAttribute="bottom" constant="15" id="oIs-e5-CkB"/>
+                <constraint firstAttribute="trailing" secondItem="Spz-Gj-Wan" secondAttribute="trailing" id="ADH-1z-I1V"/>
+                <constraint firstItem="Spz-Gj-Wan" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="CjQ-uG-Fe3"/>
+                <constraint firstItem="rmf-iU-swI" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="DNJ-nR-4wQ"/>
+                <constraint firstAttribute="bottom" secondItem="Spz-Gj-Wan" secondAttribute="bottom" id="K64-gA-qcj"/>
+                <constraint firstItem="Spz-Gj-Wan" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="UbM-OI-txe"/>
+                <constraint firstAttribute="trailing" secondItem="rmf-iU-swI" secondAttribute="trailing" id="Z4u-Rf-9nq"/>
+                <constraint firstItem="rmf-iU-swI" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="mx7-DV-Iyx"/>
+                <constraint firstAttribute="bottom" secondItem="rmf-iU-swI" secondAttribute="bottom" id="oIs-e5-CkB"/>
             </constraints>
             <size key="customSize" width="192" height="268"/>
             <connections>
+                <outlet property="playerView" destination="Spz-Gj-Wan" id="fIJ-To-KKk"/>
                 <outlet property="posterImageView" destination="YXx-5I-eoF" id="HeJ-h9-aSU"/>
                 <outlet property="ratingLabel" destination="GHN-aM-JT3" id="8s3-aM-HKi"/>
                 <outlet property="titleLabel" destination="u3F-jz-awt" id="Qr4-5R-Kli"/>

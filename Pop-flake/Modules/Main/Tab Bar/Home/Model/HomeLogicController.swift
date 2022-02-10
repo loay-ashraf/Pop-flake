@@ -20,6 +20,13 @@ final class MostPopularLogicController: WebServicePlainLogicController {
     var maxItemCount: Int?
     var maxPageCount: Int = NetworkingConstants.maxPageCount
     
+    // MARK: - Initialization
+    
+    init(maxItemCount: Int?, maxPageCount: Int) {
+        self.maxItemCount = maxItemCount
+        self.maxPageCount = maxPageCount
+    }
+    
     // MARK: - Load Methods
     
     func load(then handler: @escaping NetworkLoadingHandler) {
@@ -49,6 +56,13 @@ final class ComingSoonLogicController: WebServicePlainLogicController {
     var maxItemCount: Int?
     var maxPageCount: Int = NetworkingConstants.maxPageCount
     
+    // MARK: - Initialization
+    
+    init(maxItemCount: Int?, maxPageCount: Int) {
+        self.maxItemCount = maxItemCount
+        self.maxPageCount = maxPageCount
+    }
+    
     // MARK: - Load Method
     
     func load(then handler: @escaping NetworkLoadingHandler) {
@@ -70,6 +84,13 @@ final class InTheatersLogicController: WebServicePlainLogicController {
     var handler: NetworkLoadingHandler?
     var maxItemCount: Int?
     var maxPageCount: Int = NetworkingConstants.maxPageCount
+    
+    // MARK: - Initialization
+    
+    init(maxItemCount: Int?, maxPageCount: Int) {
+        self.maxItemCount = maxItemCount
+        self.maxPageCount = maxPageCount
+    }
     
     // MARK: - Load Method
     
@@ -93,6 +114,13 @@ final class TopRatedLogicController: WebServicePlainLogicController {
     var maxItemCount: Int?
     var maxPageCount: Int = NetworkingConstants.maxPageCount
     
+    // MARK: - Initialization
+    
+    init(maxItemCount: Int?, maxPageCount: Int) {
+        self.maxItemCount = maxItemCount
+        self.maxPageCount = maxPageCount
+    }
+    
     // MARK: - Load Method
     
     func load(then handler: @escaping NetworkLoadingHandler) {
@@ -114,6 +142,13 @@ final class BoxOfficeLogicController: WebServicePlainLogicController {
     var handler: NetworkLoadingHandler?
     var maxItemCount: Int?
     var maxPageCount: Int = NetworkingConstants.maxPageCount
+    
+    // MARK: - Initialization
+    
+    init(maxItemCount: Int?, maxPageCount: Int) {
+        self.maxItemCount = maxItemCount
+        self.maxPageCount = maxPageCount
+    }
     
     // MARK: - Load Method
     

@@ -7,16 +7,6 @@
 
 import UIKit
 
-class MostPopularDataSource: CollectionViewDataSource<MostPopularCellViewModel> {
-    
-    override init() {
-        super.init()
-        cellClass = MostPopularCell.self
-        cellConfigurator = MostPopularCellConfigurator()
-    }
-    
-}
-
 class FullMovieDataSource: CollectionViewDataSource<FullMovieCellViewModel> {
     
     override init() {

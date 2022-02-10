@@ -10,9 +10,11 @@ import UIKit
 class SearchResultTapResponder: TableViewTapResponder {
     
     override func respondToTap(atRow row: Int) {
-//        if let viewController = viewController as? UserViewController {
-//            viewController.showDetail(atRow: row)
-//        }
+        if let viewController = viewController as? MovieSearchViewController {
+            viewController.showDetail(atRow: row)
+        } else if let viewController = viewController as? SeriesSearchViewController {
+            viewController.showDetail(atRow: row)
+        }
     }
     
 }

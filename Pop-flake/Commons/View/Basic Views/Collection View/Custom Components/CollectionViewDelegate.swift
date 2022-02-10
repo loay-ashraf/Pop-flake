@@ -17,7 +17,7 @@ class CollectionViewDelegate: NSObject, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        tapResponder?.respondToTap(atItem: indexPath.row)
+        tapResponder?.respondToTap(atItem: indexPath.item)
     }
     
     // MARK: - Scroll View Delegate

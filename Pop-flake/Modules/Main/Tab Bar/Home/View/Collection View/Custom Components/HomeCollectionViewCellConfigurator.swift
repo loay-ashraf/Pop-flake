@@ -7,19 +7,6 @@
 
 import UIKit
 
-class MostPopularCellConfigurator: CollectionViewCellConfigurator {
-    
-    override func configure<T: CollectionCellViewModel>(_ cell: UICollectionViewCell, forDisplaying item: T) {
-        if let cell = cell as? MostPopularCell, let item = item as? MostPopularCellViewModel {
-            cell.titleLabel.text = item.title
-            cell.ratingLabel.text = item.rating
-            cell.posterImageView.load(at: item.image)
-            cell.setNeedsLayout()
-        }
-    }
-    
-}
-
 class FullMovieCellConfigurator: CollectionViewCellConfigurator {
     
     override func configure<T: CollectionCellViewModel>(_ cell: UICollectionViewCell, forDisplaying item: T) {

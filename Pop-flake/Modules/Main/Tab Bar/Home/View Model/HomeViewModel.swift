@@ -16,7 +16,7 @@ final class MostPopularViewModel: WebServicePlainCollectionViewModel {
     typealias WebServiceLogicControllerType = MostPopularLogicController
     typealias CollectionCellViewModelType = MostPopularCellViewModel
     
-    var logicController = MostPopularLogicController()
+    var logicController = MostPopularLogicController(maxItemCount: 10, maxPageCount: 1)
     var cellViewModels = List<MostPopularCellViewModel>()
     
     // MARK: - Load Methods
@@ -41,7 +41,7 @@ final class ComingSoonViewModel: WebServicePlainCollectionViewModel {
     typealias WebServiceLogicControllerType = ComingSoonLogicController
     typealias CollectionCellViewModelType = FullMovieCellViewModel
     
-    var logicController = ComingSoonLogicController()
+    var logicController = ComingSoonLogicController(maxItemCount: 10, maxPageCount: 1)
     var cellViewModels = List<FullMovieCellViewModel>()
     
     // MARK: - Synchronize Properties Method
@@ -60,7 +60,7 @@ final class InTheatersViewModel: WebServicePlainCollectionViewModel {
     typealias WebServiceLogicControllerType = InTheatersLogicController
     typealias CollectionCellViewModelType = FullMovieCellViewModel
     
-    var logicController = InTheatersLogicController()
+    var logicController = InTheatersLogicController(maxItemCount: 250, maxPageCount: 1)
     var cellViewModels = List<FullMovieCellViewModel>()
     
     // MARK: - Synchronize Properties Method
@@ -79,7 +79,7 @@ final class TopRatedViewModel: WebServicePlainCollectionViewModel {
     typealias WebServiceLogicControllerType = TopRatedLogicController
     typealias CollectionCellViewModelType = CompactMovieCellViewModel
     
-    var logicController = TopRatedLogicController()
+    var logicController = TopRatedLogicController(maxItemCount: 250, maxPageCount: 1)
     var cellViewModels = List<CompactMovieCellViewModel>()
     
     // MARK: - Synchronize Properties Method
@@ -119,6 +119,7 @@ final class MostPopularCellViewModel: CollectionCellViewModel {
     typealias ModelType = CompactMovie
     
     var model: CompactMovie
+    var id: String
     var title: String
     var rating: String
     var image: URL
@@ -127,6 +128,7 @@ final class MostPopularCellViewModel: CollectionCellViewModel {
     
     init() {
         model = CompactMovie()
+        id = ""
         title = ""
         rating = ""
         image = URL(string: "www.imdb.com")!
@@ -134,6 +136,7 @@ final class MostPopularCellViewModel: CollectionCellViewModel {
     
     init(from model: CompactMovie) {
         self.model = model
+        id = model.id
         title = model.title
         rating = model.imDBRating
         image = model.image
@@ -148,6 +151,7 @@ final class FullMovieCellViewModel: CollectionCellViewModel {
     typealias ModelType = FullMovie
     
     var model: FullMovie
+    var id: String
     var title: String
     var rating: String
     var ratingCount: String
@@ -160,6 +164,7 @@ final class FullMovieCellViewModel: CollectionCellViewModel {
     
     init() {
         model = FullMovie()
+        id = ""
         title = ""
         rating = ""
         ratingCount = ""
@@ -171,6 +176,7 @@ final class FullMovieCellViewModel: CollectionCellViewModel {
     
     init(from model: FullMovie) {
         self.model = model
+        id = model.id
         title = model.title
         rating = model.imDBRating
         ratingCount = model.imDBRatingCount
@@ -189,6 +195,7 @@ final class CompactMovieCellViewModel: CollectionCellViewModel {
     typealias ModelType = CompactMovie
     
     var model: CompactMovie
+    var id: String
     var title: String
     var year: String
     var rating: String
@@ -198,6 +205,7 @@ final class CompactMovieCellViewModel: CollectionCellViewModel {
     
     init() {
         model = CompactMovie()
+        id = ""
         title = ""
         year = ""
         rating = ""
@@ -206,6 +214,7 @@ final class CompactMovieCellViewModel: CollectionCellViewModel {
     
     init(from model: CompactMovie) {
         self.model = model
+        id = model.id
         title = model.title
         year = model.year
         rating = model.imDBRating
@@ -221,6 +230,7 @@ final class BoxOfficeCellViewModel: TableCellViewModel {
     typealias ModelType = BoxOfficeMovie
     
     var model: BoxOfficeMovie
+    var id: String
     var title: String
     var gross: String
     var image: URL
@@ -229,6 +239,7 @@ final class BoxOfficeCellViewModel: TableCellViewModel {
     
     init() {
         model = BoxOfficeMovie()
+        id = ""
         title = ""
         gross = ""
         image = URL(string: "www.imdb.com")!
@@ -236,6 +247,7 @@ final class BoxOfficeCellViewModel: TableCellViewModel {
     
     init(from model: BoxOfficeMovie) {
         self.model = model
+        id = model.id
         title = model.title
         gross = model.gross
         image = model.image

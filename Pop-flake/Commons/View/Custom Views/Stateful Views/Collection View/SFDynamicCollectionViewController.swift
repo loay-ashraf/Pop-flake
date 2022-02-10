@@ -48,12 +48,13 @@ class SFDynamicCollectionViewController<T: CollectionViewModel>: UICollectionVie
     // MARK: - View Helper Methods
     
     func configureView() {
+        // Setup collection view as super view
+        xCollectionView.isSuperView = true
         // Setup collection data source and delegates
         xCollectionView.setDataSource(collectionViewDataSource)
         xCollectionView.setDelegate(collectionViewDelegate)
         // Setup collection view refresh control
-        xCollectionView.refreshControl = UIRefreshControl()
-        xCollectionView.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        //enableRefreshControl()
         // Setup error actions
         xCollectionView.errorAction = { [weak self] in self?.load(with: .initial) }
     }
@@ -79,6 +80,7 @@ class SFDynamicCollectionViewController<T: CollectionViewModel>: UICollectionVie
     }
     
     func disableRefreshControl() {
+        xCollectionView.refreshControl?.removeTarget(self, action: #selector(refresh), for: .valueChanged)
         xCollectionView.refreshControl = nil
     }
     

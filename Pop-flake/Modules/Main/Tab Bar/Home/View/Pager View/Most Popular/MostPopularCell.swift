@@ -6,18 +6,21 @@
 //
 
 import UIKit
+import youtube_ios_player_helper
 
-class MostPopularCell: CollectionViewCell, InterfaceBuilderCollectionViewCell {
+class MostPopularCell: PagerViewCell {
 
     override class var reuseIdentifier: String { return String(describing: MostPopularCell.self) }
     override class var nib: UINib { return UINib(nibName: String(describing: MostPopularCell.self), bundle: nil) }
     
+    @IBOutlet weak var playerView: YTPlayerView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var posterImageView: SFImageView!
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        playerView = nil
         titleLabel.text = nil
         ratingLabel.text = nil
         posterImageView.image = nil

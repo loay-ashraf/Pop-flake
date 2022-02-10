@@ -7,7 +7,7 @@
 
 import Foundation
 
-class BoxOfficeDataSource: TableViewDataSource<BoxOfficeCellViewModel> {
+class BoxOfficeDataSource: SKTableViewDataSource<BoxOfficeCellViewModel> {
     
     override init() {
         super.init()

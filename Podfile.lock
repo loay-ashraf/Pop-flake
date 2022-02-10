@@ -1,0 +1,24 @@
+PODS:
+  - FSPagerView (0.8.3)
+  - SkeletonView (1.29.2)
+  - youtube-ios-player-helper (1.0.4)
+
+DEPENDENCIES:
+  - FSPagerView
+  - SkeletonView
+  - youtube-ios-player-helper
+
+SPEC REPOS:
+  trunk:
+    - FSPagerView
+    - SkeletonView
+    - youtube-ios-player-helper
+
+SPEC CHECKSUMS:
+  FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
+  SkeletonView: 915a80ecc2b6421ab7ac0f0212321c0cc1406472
+  youtube-ios-player-helper: e9b97535e816db3152179d84d999bc1807ecd689
+
+PODFILE CHECKSUM: da53da407a104b9b5d1cdbc4bf060513f0803220
+
+COCOAPODS: 1.11.2

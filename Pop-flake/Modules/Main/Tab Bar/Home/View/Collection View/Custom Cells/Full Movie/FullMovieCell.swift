@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class FullMovieCell: CollectionViewCell, InterfaceBuilderCollectionViewCell {
 
@@ -19,7 +20,7 @@ class FullMovieCell: CollectionViewCell, InterfaceBuilderCollectionViewCell {
     @IBOutlet weak var contentRatingLabel: UILabel!
     @IBOutlet weak var runtimeLabel: UILabel!
     @IBOutlet weak var posterImageView: SFImageView!
-    
+
     override func prepareForReuse() {
         super.prepareForReuse()
         titleLabel.text = nil

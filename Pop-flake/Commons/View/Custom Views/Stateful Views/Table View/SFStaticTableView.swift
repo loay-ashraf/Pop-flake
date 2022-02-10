@@ -67,29 +67,29 @@ class SFStaticTableView: UITableView, StatefulView {
     }
     
     func showActivityIndicator(for loadingViewState: LoadingViewState) {
-        switch loadingViewState {
-        case .initial: if isSuperView == false, !SVProgressHUD.isVisible() {
-                            activityIndicatorView.show(on: self)
-                        } else if isSuperView {
-                            addSubview(curtainView)
-                            SVProgressHUD.show()
-                        }
-                        isScrollEnabled = false
-        default: return
-        }
+//        switch loadingViewState {
+//        case .initial: if isSuperView == false, !SVProgressHUD.isVisible() {
+//                            activityIndicatorView.show(on: self)
+//                        } else if isSuperView {
+//                            addSubview(curtainView)
+//                            SVProgressHUD.show()
+//                        }
+//                        isScrollEnabled = false
+//        default: return
+//        }
     }
     
     func hideActivityIndicator(for loadingViewState: LoadingViewState) {
-        switch loadingViewState {
-        case .initial: if isSuperView == false, !SVProgressHUD.isVisible() {
-                            activityIndicatorView.hide()
-                        } else if isSuperView {
-                            curtainView.removeFromSuperview()
-                            SVProgressHUD.dismiss(withDelay: 0.5)
-                        }
-                        isScrollEnabled = true
-        default: return
-        }
+//        switch loadingViewState {
+//        case .initial: if isSuperView == false, !SVProgressHUD.isVisible() {
+//                            activityIndicatorView.hide()
+//                        } else if isSuperView {
+//                            curtainView.removeFromSuperview()
+//                            SVProgressHUD.dismiss(withDelay: 0.5)
+//                        }
+//                        isScrollEnabled = true
+//        default: return
+//        }
     }
     
     func showError(for failedViewState: FailedViewState) {

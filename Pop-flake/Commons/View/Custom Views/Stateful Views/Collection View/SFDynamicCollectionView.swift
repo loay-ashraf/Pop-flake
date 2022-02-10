@@ -9,7 +9,12 @@ import UIKit
 
 class SFDynamicCollectionView: CollectionView, StatefulView {
 
+    // MARK: - Properties
+    
     var state: ViewState = .presenting
+    
+    var isSuperView: Bool = false
+    var isScrollable: Bool = true
     
     var errorAction: (() -> Void)?
     
@@ -17,7 +22,7 @@ class SFDynamicCollectionView: CollectionView, StatefulView {
     private var activityIndicatorView: ActivityIndicatorView!
     private var errorView: ErrorView!
     
-    // MARK: - Initialisation
+    // MARK: - Initialization
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
@@ -67,14 +72,26 @@ class SFDynamicCollectionView: CollectionView, StatefulView {
     
     func showActivityIndicator(for loadingViewState: LoadingViewState) {
         switch loadingViewState {
-        case .initial: activityIndicatorView.show(on: self); self.isScrollEnabled = false
+        case .initial: if isSuperView == false {
+                            activityIndicatorView.show(on: self)
+                        } else if isSuperView {
+                            //addSubview(curtainView)
+                            //showAnimatedSkeleton()
+                        }
+                        isScrollEnabled = false
         default: return
         }
     }
     
     func hideActivityIndicator(for loadingViewState: LoadingViewState) {
         switch loadingViewState {
-        case .initial: activityIndicatorView.hide(); self.isScrollEnabled = true
+        case .initial: if isSuperView == false {
+                            activityIndicatorView.hide()
+                        } else if isSuperView {
+                            //curtainView.removeFromSuperview()
+                            //hideSkeleton()
+                        }
+                        isScrollable ? isScrollEnabled = true : nil
         case .refresh: refreshControl?.endRefreshing()
         default: return
         }
