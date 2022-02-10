@@ -7,9 +7,11 @@
 
 import Foundation
 import UIKit
+import NotificationBannerSwift
 
 typealias NetworkingConstants = Constants.NetworkingConstants
 typealias ViewConstants = Constants.View
+typealias AlertConstants = ViewConstants.Alert
 typealias EmptyConstants = ViewConstants.Empty
 typealias ErrorConstants = ViewConstants.Error
 
@@ -44,6 +46,24 @@ struct Constants {
     // MARK: - View Constants
     
     struct View {
+        
+        // MARK: - Alert Constants
+        
+        struct Alert {
+            
+            struct NoInternet {
+                
+                static let title = "No Internet"
+                
+                static func notificationBanner() -> StatusBarNotificationBanner {
+                    let banner = StatusBarNotificationBanner(title: title, style: .danger)
+                    banner.autoDismiss = false
+                    return banner
+                }
+                
+            }
+        
+        }
         
         // MARK: - Empty Constants
         

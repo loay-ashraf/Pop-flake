@@ -2,13 +2,19 @@ PODS:
   - Eureka (5.3.4)
   - FSPagerView (0.8.3)
   - InAppSettingsKit (3.3.5)
+  - MarqueeLabel (4.0.5)
+  - NotificationBannerSwift (3.0.6):
+    - MarqueeLabel (~> 4.0.5)
+    - SnapKit (~> 5.0.1)
   - SkeletonView (1.29.2)
+  - SnapKit (5.0.1)
   - youtube-ios-player-helper (1.0.4)
 
 DEPENDENCIES:
   - Eureka
   - FSPagerView
   - InAppSettingsKit
+  - NotificationBannerSwift (~> 3.0.0)
   - SkeletonView
   - youtube-ios-player-helper
 
@@ -17,16 +23,22 @@ SPEC REPOS:
     - Eureka
     - FSPagerView
     - InAppSettingsKit
+    - MarqueeLabel
+    - NotificationBannerSwift
     - SkeletonView
+    - SnapKit
     - youtube-ios-player-helper
 
 SPEC CHECKSUMS:
   Eureka: 60cf058f86a8fb3ed26165ba5292b9850361b0a6
   FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
   InAppSettingsKit: e6123b1241711bac01fe7d837fd71f864bb473c0
+  MarqueeLabel: 00cc0bcd087111dca575878b3531af980559707d
+  NotificationBannerSwift: 7021be2338f8f29cf424b0aca43da462bf9e2a1a
   SkeletonView: 915a80ecc2b6421ab7ac0f0212321c0cc1406472
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   youtube-ios-player-helper: e9b97535e816db3152179d84d999bc1807ecd689
 
-PODFILE CHECKSUM: 1af5fb1f2670ac7d16ddc5405d0b5329e753442d
+PODFILE CHECKSUM: 324398bacbcdd9c39f471ac72a383982e9cc8b1c
 
 COCOAPODS: 1.11.2

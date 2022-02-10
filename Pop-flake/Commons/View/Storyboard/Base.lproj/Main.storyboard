@@ -94,13 +94,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="tIK-ew-mge">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="355"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JkL-UX-7UY" customClass="YTPlayerView">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
+                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
                                 <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AvD-Xc-Bk2">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="355"/>
+                                    <rect key="frame" x="157" y="100" width="100" height="200"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="355" id="t2z-pP-VdP"/>
+                                        <constraint firstAttribute="width" constant="100" id="Mti-BW-l43"/>
+                                        <constraint firstAttribute="height" constant="200" id="t2z-pP-VdP"/>
                                     </constraints>
                                     <connections>
                                         <segue destination="gcf-XQ-pIO" kind="embed" id="aJ7-eu-srQ"/>
@@ -109,17 +114,19 @@
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="AvD-Xc-Bk2" secondAttribute="trailing" id="4ok-l2-zy9"/>
-                                <constraint firstItem="AvD-Xc-Bk2" firstAttribute="leading" secondItem="tIK-ew-mge" secondAttribute="leading" id="iAx-v2-G7h"/>
-                                <constraint firstAttribute="bottom" secondItem="AvD-Xc-Bk2" secondAttribute="bottom" id="s3d-Bn-4bf"/>
-                                <constraint firstItem="AvD-Xc-Bk2" firstAttribute="top" secondItem="tIK-ew-mge" secondAttribute="top" id="xgI-4d-2fH"/>
+                                <constraint firstItem="JkL-UX-7UY" firstAttribute="leading" secondItem="tIK-ew-mge" secondAttribute="leading" id="6tY-dl-cIe"/>
+                                <constraint firstItem="AvD-Xc-Bk2" firstAttribute="centerY" secondItem="tIK-ew-mge" secondAttribute="centerY" id="DXN-7O-yaP"/>
+                                <constraint firstAttribute="trailing" secondItem="JkL-UX-7UY" secondAttribute="trailing" id="UoS-ow-JNo"/>
+                                <constraint firstItem="JkL-UX-7UY" firstAttribute="top" secondItem="tIK-ew-mge" secondAttribute="top" id="WSv-Z8-oJn"/>
+                                <constraint firstItem="AvD-Xc-Bk2" firstAttribute="centerX" secondItem="tIK-ew-mge" secondAttribute="centerX" id="ntB-nj-OCX"/>
+                                <constraint firstAttribute="bottom" secondItem="JkL-UX-7UY" secondAttribute="bottom" id="sSs-kP-BXD"/>
                             </constraints>
                         </view>
                         <sections>
                             <tableViewSection headerTitle="Coming Soon" id="wRX-RB-BWD">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="405" id="gnd-69-4oy">
-                                        <rect key="frame" x="0.0" y="387" width="414" height="405"/>
+                                        <rect key="frame" x="0.0" y="432" width="414" height="405"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gnd-69-4oy" id="Mkm-Ix-fgd">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="405"/>
@@ -148,7 +155,7 @@
                             <tableViewSection headerTitle="In Theaters" id="kkt-YS-O7w">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="405" id="vqG-Hd-BZp">
-                                        <rect key="frame" x="0.0" y="842" width="414" height="405"/>
+                                        <rect key="frame" x="0.0" y="887" width="414" height="405"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vqG-Hd-BZp" id="cyg-ao-VOB">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="405"/>
@@ -177,7 +184,7 @@
                             <tableViewSection headerTitle="Top Rated Movies" id="m71-88-XLG">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="380" id="vYa-Sg-X4J">
-                                        <rect key="frame" x="0.0" y="1297" width="414" height="380"/>
+                                        <rect key="frame" x="0.0" y="1342" width="414" height="380"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vYa-Sg-X4J" id="klv-Ub-fQ6">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="380"/>
@@ -205,17 +212,17 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Top Grossing Movies" id="9yt-GU-Ag5">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="3000" id="AJP-Tv-WPh">
-                                        <rect key="frame" x="0.0" y="1727" width="414" height="3000"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="2024" id="AJP-Tv-WPh">
+                                        <rect key="frame" x="0.0" y="1772" width="414" height="2024"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AJP-Tv-WPh" id="GRw-pK-7xE">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="3000"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="2024"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ydb-Mx-r1S">
                                                     <rect key="frame" x="20" y="11" width="374" height="178"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="3000" id="9Xa-fu-flY"/>
+                                                        <constraint firstAttribute="height" priority="750" constant="2024" id="9Xa-fu-flY"/>
                                                     </constraints>
                                                     <connections>
                                                         <segue destination="sSW-YL-Seb" kind="embed" id="HXn-Jq-J6Z"/>
@@ -239,6 +246,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Home" largeTitleDisplayMode="always" id="U43-Sg-zeH"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="AG2-7i-IdK">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="rereshControlValueChanged:" destination="nf3-DU-FzI" eventType="valueChanged" id="tyh-vG-piE"/>
+                        </connections>
+                    </refreshControl>
+                    <connections>
+                        <outlet property="playerView" destination="JkL-UX-7UY" id="uTi-jp-3XG"/>
+                        <outlet property="refeshControl" destination="AG2-7i-IdK" id="4Hk-qA-6J2"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X8h-lh-3UR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -269,19 +286,26 @@
             <objects>
                 <viewController id="gcf-XQ-pIO" customClass="MostPopularViewController" customModule="Pop_flake" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iYM-Sq-IbA" userLabel="Content View">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="355"/>
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Htd-AQ-SwX" customClass="PagerView" customModule="Pop_flake" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="414" height="311"/>
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="200"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isInfinite" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="removesInfiniteLoopForSingleItem" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="itemSize">
+                                        <size key="value" width="100" height="200"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YiJ-b0-3qe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="YiJ-b0-3qe" firstAttribute="bottom" secondItem="Htd-AQ-SwX" secondAttribute="bottom" id="2Dw-6A-Sb7"/>
-                            <constraint firstItem="Htd-AQ-SwX" firstAttribute="top" secondItem="YiJ-b0-3qe" secondAttribute="top" id="KXs-cp-8oz"/>
+                            <constraint firstItem="Htd-AQ-SwX" firstAttribute="top" secondItem="YiJ-b0-3qe" secondAttribute="top" constant="-44" id="KXs-cp-8oz"/>
                             <constraint firstItem="Htd-AQ-SwX" firstAttribute="leading" secondItem="YiJ-b0-3qe" secondAttribute="leading" id="fzA-Ll-EeN"/>
                             <constraint firstItem="YiJ-b0-3qe" firstAttribute="trailing" secondItem="Htd-AQ-SwX" secondAttribute="trailing" id="sUL-sx-ca1"/>
                         </constraints>
@@ -292,7 +316,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X0I-zb-Wa7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2988" y="-1023"/>
+            <point key="canvasLocation" x="2986.9565217391305" y="-1023.2142857142857"/>
         </scene>
         <!--Coming Soon View Controller-->
         <scene sceneID="FZ1-fm-wGR">
@@ -309,6 +333,9 @@
                             <inset key="sectionInset" minX="30" minY="15" maxX="30" maxY="15"/>
                         </collectionViewFlowLayout>
                         <cells/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <outlet property="dataSource" destination="B3p-p7-Po1" id="xae-xj-KJf"/>
                             <outlet property="delegate" destination="B3p-p7-Po1" id="BdN-4S-y3i"/>
@@ -334,6 +361,9 @@
                             <inset key="sectionInset" minX="30" minY="15" maxX="30" maxY="15"/>
                         </collectionViewFlowLayout>
                         <cells/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <outlet property="dataSource" destination="FOu-fC-oHg" id="flV-ZM-m0w"/>
                             <outlet property="delegate" destination="FOu-fC-oHg" id="YZa-K6-cYV"/>
@@ -359,6 +389,9 @@
                             <inset key="sectionInset" minX="30" minY="15" maxX="30" maxY="15"/>
                         </collectionViewFlowLayout>
                         <cells/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <outlet property="dataSource" destination="tfH-Li-nvf" id="jtv-dv-qPX"/>
                             <outlet property="delegate" destination="tfH-Li-nvf" id="xnV-e0-gW7"/>
@@ -377,6 +410,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="374" height="178"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <outlet property="dataSource" destination="sSW-YL-Seb" id="kCJ-7j-qhL"/>
                             <outlet property="delegate" destination="sSW-YL-Seb" id="NR2-pd-gxu"/>

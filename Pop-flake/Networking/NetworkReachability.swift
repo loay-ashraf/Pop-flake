@@ -34,6 +34,13 @@ class ReachabilityHelper {
             } else {
                 self.isWifiConnected = false
             }
+            DispatchQueue.main.async {
+                if self.isWifiConnected || self.isCellularConnected || self.isEthernetConnected {
+                    AlertHelper.dismissStatusBarBanner()
+                } else {
+                    AlertHelper.showStatusBarBanner(alert: .noInternet)
+                }
+            }
         }
         cellularMonitor.pathUpdateHandler = { path in
             if path.status == .satisfied {
@@ -41,12 +48,26 @@ class ReachabilityHelper {
             } else {
                 self.isCellularConnected = false
             }
+            DispatchQueue.main.async {
+                if self.isWifiConnected || self.isCellularConnected || self.isEthernetConnected {
+                    AlertHelper.dismissStatusBarBanner()
+                } else {
+                    AlertHelper.showStatusBarBanner(alert: .noInternet)
+                }
+            }
         }
         ethernetMonitor.pathUpdateHandler = { path in
             if path.status == .satisfied {
                 self.isEthernetConnected = true
             } else {
                 self.isEthernetConnected = false
+            }
+            DispatchQueue.main.async {
+                if self.isWifiConnected || self.isCellularConnected || self.isEthernetConnected {
+                    AlertHelper.dismissStatusBarBanner()
+                } else {
+                    AlertHelper.showStatusBarBanner(alert: .noInternet)
+                }
             }
         }
         

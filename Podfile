@@ -10,6 +10,7 @@ target 'Pop-flake' do
   # Pods for Pop-flake
   pod 'FSPagerView'
   pod 'SkeletonView'
+  pod 'NotificationBannerSwift', '~> 3.0.0'
   pod "youtube-ios-player-helper"
   pod 'InAppSettingsKit'
   pod 'Eureka'

@@ -29,6 +29,10 @@ class SFDynamicTableViewController<T: TableViewModel>: UITableViewController {
         super.init(coder: coder)
     }
     
+    deinit {
+        xTableView.transition(to: .presenting)
+    }
+    
     // MARK: - Lifecycle
     
     override func loadView() {
@@ -52,17 +56,10 @@ class SFDynamicTableViewController<T: TableViewModel>: UITableViewController {
         default: disableSearchBar()
         }
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        xTableView.transition(to: .presenting)
-    }
 
     // MARK: - View Helper Methods
     
     func configureView() {
-        // Setup table view as super view
-        xTableView.isSuperView = true
         // Setup table view data source and delegates
         xTableView.setDataSource(tableViewDataSource)
         xTableView.setDelegate(tableViewDelegate)

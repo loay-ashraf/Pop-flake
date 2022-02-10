@@ -14,13 +14,11 @@ class SFDynamicTableView: TableView, StatefulView {
     
     var state: ViewState = .presenting
 
-    var isSuperView: Bool = false
     var isScrollable: Bool = true
     
     var errorAction: (() -> Void)?
     var footerErrorAction: (() -> Void)?
     
-    private var curtainView: UIView!
     private var emptyView: EmptyView!
     private var activityIndicatorView: ActivityIndicatorView!
     private var footerActivityIndicatorView: FooterActivityIndicatorView!
@@ -32,7 +30,6 @@ class SFDynamicTableView: TableView, StatefulView {
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         initializeSubviews()
-        isSkeletonable = true
     }
     
     required init?(coder: NSCoder) {
@@ -41,11 +38,6 @@ class SFDynamicTableView: TableView, StatefulView {
     }
     
     private func initializeSubviews() {
-        curtainView = {
-            let view = UIView(frame: frame)
-            view.backgroundColor = .systemBackground
-            return view
-        }()
         emptyView = EmptyView.instanceFromNib()
         activityIndicatorView = ActivityIndicatorView.instanceFromNib()
         footerActivityIndicatorView = FooterActivityIndicatorView.instanceFromNib()
@@ -92,12 +84,7 @@ class SFDynamicTableView: TableView, StatefulView {
     
     func showActivityIndicator(for loadingViewState: LoadingViewState) {
         switch loadingViewState {
-        case .initial: if isSuperView == false {
-                            activityIndicatorView.show(on: self)
-                        } else if isSuperView {
-                            //addSubview(curtainView)
-                            showAnimatedSkeleton()
-                        }
+        case .initial:  showAnimatedSkeleton()
                         isScrollEnabled = false
         case .refresh: return
         case .paginate: footerActivityIndicatorView.show()
@@ -106,12 +93,7 @@ class SFDynamicTableView: TableView, StatefulView {
     
     func hideActivityIndicator(for loadingViewState: LoadingViewState) {
         switch loadingViewState {
-        case .initial: if isSuperView == false {
-                            activityIndicatorView.hide()
-                        } else if isSuperView {
-                            //curtainView.removeFromSuperview()
-                            hideSkeleton()
-                        }
+        case .initial:  hideSkeleton()
                         isScrollable ? isScrollEnabled = true : nil
         case .refresh: refreshControl?.endRefreshing()
         case .paginate: footerActivityIndicatorView.hide()

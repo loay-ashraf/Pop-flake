@@ -29,6 +29,10 @@ class SFDynamicCollectionViewController<T: CollectionViewModel>: UICollectionVie
         super.init(coder: coder)
     }
     
+    deinit {
+        xCollectionView.transition(to: .presenting)
+    }
+    
     // MARK: - Lifecycle
     
     override func loadView() {
@@ -48,8 +52,6 @@ class SFDynamicCollectionViewController<T: CollectionViewModel>: UICollectionVie
     // MARK: - View Helper Methods
     
     func configureView() {
-        // Setup collection view as super view
-        xCollectionView.isSuperView = true
         // Setup collection data source and delegates
         xCollectionView.setDataSource(collectionViewDataSource)
         xCollectionView.setDelegate(collectionViewDelegate)

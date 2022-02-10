@@ -24,14 +24,14 @@ class SeriesSearchViewController: SFDynamicTableViewController<SeriesSearchViewM
         tableViewDataSource = SearchResultDataSource()
         tableViewDelegate = SearchResultDelegate(self)
         viewModel = SeriesSearchViewModel()
-        //emptyViewModel = EmptyConstants.Users.viewModel
+        emptyViewModel = EmptyConstants.SearchResults.viewModel
     }
 
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        load(with: .initial)
+        xTableView.transition(to: .empty(emptyViewModel))
     }
     
     // MARK: - View Actions
@@ -49,7 +49,6 @@ class SeriesSearchViewController: SFDynamicTableViewController<SeriesSearchViewM
     
     override func configureView() {
         super.configureView()
-        disableRefreshControl()
         xTableView.isScrollable = false
     }
 
@@ -57,10 +56,12 @@ class SeriesSearchViewController: SFDynamicTableViewController<SeriesSearchViewM
 
     override func load(with loadingViewState: LoadingViewState) {
         super.load(with: loadingViewState)
-        switch loadingViewState {
-        case .initial: viewModel?.load(withQuery: query) { [weak self] error in self?.loadHandler(error: error) }
-        case .refresh: viewModel?.refresh(withQuery: query) { [weak self] error in self?.refreshHandler(error: error) }
-        default: break
+        if !query.isEmpty {
+            switch loadingViewState {
+            case .initial: viewModel?.load(withQuery: query) { [weak self] error in self?.loadHandler(error: error) }
+            case .refresh: viewModel?.refresh(withQuery: query) { [weak self] error in self?.refreshHandler(error: error) }
+            default: break
+            }
         }
     }
     

@@ -31,8 +31,9 @@ struct ErrorViewModel {
             }
             case .server,.api,.decoding,.encoding: self = ErrorConstants.Network.viewModel
             }
+        } else {
+            return nil
         }
-        return nil
     }
     
 }
